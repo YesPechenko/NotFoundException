@@ -5,15 +5,28 @@ import ru.netology.domain.Product;
 import ru.netology.domain.TShirt;
 import ru.netology.repository.ProductRepository;
 
+
 public class ProductManager {
     private ProductRepository repository;
 
+    public ProductManager (){
+
+    }
+
     public ProductManager(ProductRepository repository) {
         this.repository = repository;
-            }
+    }
 
     public void add(Product item) {
         repository.save(item);
+    }
+
+    public Product[] getAll() {
+        return repository.findAll();
+    }
+
+    public void removeById(int id) {
+        repository.removeById(id);
     }
 
        public Product[] searcyBy(String text) {

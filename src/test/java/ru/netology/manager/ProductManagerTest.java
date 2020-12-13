@@ -20,8 +20,10 @@ class ProductManagerTest {
     TShirt fifth = new TShirt(5, "NameS2", 200, "Red", "S2" );
     TShirt sixth = new TShirt(6, "NameS3", 300, "Blue", "S3" );
 
+
     @Test
     public void RemoveExistingItem() {
+
         manager.add(first);
         manager.add(second);
         manager.add(third);
@@ -29,9 +31,9 @@ class ProductManagerTest {
         manager.add(fifth);
         manager.add(sixth);
 
-        repository.removeById(5);
+        repository.removeById(6);
         Product[] actual = repository.findAll();
-        Product[] expected = new Product[] {first, second,third, fourth,fifth, sixth};
+        Product[] expected = new Product[] {first, second,third, fourth,fifth};
         assertArrayEquals(expected, actual);
 
     }
